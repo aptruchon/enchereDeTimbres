@@ -1,0 +1,74 @@
+{% extends "base.twig.html" %}
+
+{% block title %}Catalogue{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="ressources/css/catalogue.css">
+<section class="header__entete_page tres-gros-espace">
+    <h2 class="header__entete_page-titre">Collection en vedette</h2>
+</section>
+<main class="main tres-gros-espace">
+    <span data-js-iconeFiltre = "oui" ><img src="https://s2.svgbox.net/hero-solid.svg?ic=adjustments&color=000000" width="32" height="32"></span>
+    
+    <section data-js-filtre class="main__filtre cache" >
+        <span data-js-iconeCheck class="cache check"><img src="https://s2.svgbox.net/hero-solid.svg?ic=x&color=000000" width="32" height="32"></span>
+        <h3 class="main__filtre-titre">Type</h3>
+        <ul class="main__filtre-liste">
+            <li class="main__filtre-liste_choix"><input type="checkbox" name="categorie">Enchères actives</li>
+            <li class="main__filtre-liste_choix"><input type="checkbox" name="categorie">Enchères archivés</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h3 class="main__filtre-titre">Catégories</h3>
+        <ul class="main__filtre-liste">
+            <li class="main__filtre-liste_choix"><input type="checkbox" name="categorie"> Animaux</li>
+            <li class="main__filtre-liste_choix"><input type="checkbox" name="categorie"> Véhicules</li>
+            <li class="main__filtre-liste_choix"><input type="checkbox" name="categorie"> Insectes</li>
+            <li class="main__filtre-liste_choix"><input type="checkbox" name="categorie"> Châteaux</li>
+            <li class="main__filtre-liste_choix"><input type="checkbox" name="categorie"> Véhicules</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h3 class="main__filtre-titre">Pays</h3>
+        <ul class="main__filtre-liste">
+            <li class="main__filtre-liste_choix"><input type="checkbox" name="categorie"> Canada</li>
+            <li class="main__filtre-liste_choix"><input type="checkbox" name="categorie"> États-Unis</li>
+            <li class="main__filtre-liste_choix"><input type="checkbox" name="categorie"> Japon</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h3 class="main__filtre-titre">Prix</h3>
+        <div class="main__filtre-slider">
+            <label for="min">Minimum</label><br>
+            <input type="range" name="min" id="min" min="0" max="100" value="0"><div class="main__filtre-slider_value_min"></div>
+            <label for="max">Maximum</label><div class="main__filtre-slider_value_max"></div>
+            <input type="range" name="max" id="max"  min="0" max="100" value="100">
+        </div>
+    </section>
+
+    
+    <section class="main__flex">
+
+        {% for enchere in encheres %}
+        
+            <article class="main__flex-article">
+            <a class="main__flex-article_lien" href="enchere/un/{{ enchere.tim_id }}">
+                <div class="main__flex-article-img_container">
+                    <img class="main__flex-article-img" src="{{ enchere.img_nom }}" alt="{{ enchere.tim_nom }}">
+                </div>
+                <h4 class="main__flex-article-titre">{{ enchere.tim_nom }}</h4>
+            </a>
+                <h5 class="main__flex-article-description">Fin de l'enchère : {{ enchere.enc_dateFin }}</h5>
+                <span class="main__flex-article-estimation">Mise actuelle : {{ enchere.mis_miseActuelle }},00 CAD</span>
+
+                <a class="main__flex-article-bouton gros-espace" href="enchere/un/{{ enchere.tim_id }}">Miser</a>
+
+        </article>
+        {% endfor %}
+    </section>
+</main>
+
+{% endblock %}

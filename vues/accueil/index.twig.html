@@ -1,0 +1,75 @@
+{% extends "base.twig.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="ressources/css/index.css">
+<main>
+    <!-- Slider main container -->
+    <section class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><img src="ressources/img/photos/carrousel/Canada_1930_Electricity_and_Gas_Inspection_stamps.jpg" alt=""><a class="swiper__liens" href="#">Offre 1</a></div>
+        <div class="swiper-slide"><img id="img-carrousel" class="image-carrousel" src="ressources/img/photos/carrousel/1961US.jpg" alt=""><a href="#" class="swiper__liens">Offre 2</a></div>
+        <div class="swiper-slide"><img class="image-carrousel" src="ressources/img/photos/carrousel/grafZeppelin.jpg" alt=""><a href="#" class="swiper__liens">Offre 3</a></div>
+        <div class="swiper-slide"><img class="image-carrousel" src="ressources/img/photos/carrousel/ukrainian-stamp-album-exhibit-6b.jpg" alt=""><a href="#" class="swiper__liens">Offre 4</a></div>
+        ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+    
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>      
+    <script>
+    let swiper = new Swiper('.swiper', {
+        // Optional parameters
+        
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        }
+    });
+    </script>
+
+    <h2 class="actualites-titre">Actualités</h2>
+    <section class="actualites">
+        <article class="articles">
+            <img class="image-article" src="ressources/img/photos/articles/etampes.png" alt="photo-article">
+            <a href="#"><h3 class="titre__articles">Nos étampes de passports favorites</h3></a>
+            
+            <p class="texte__articles">Les passeports sont plus que de simples petits livres qui vous permettent de passer d'un pays à l'autre - ils racontent également des histoires et portent une partie de notre histoire en tant que voyageurs. Dans cet esprit, nous avons interrogé notre bureau et collecté les tampons de passeport que nous aimons le plus. <a href="#">Lire l'article...</a></p>
+        </article>
+        <article class="articles">
+            <img class="image-article" src="ressources/img/photos/articles/codeBarre.png" alt="photo-article">
+            <a href="#"><h3 class="titre__articles">Pourquoi les nouveaux timbres britanniques provoquent l'indignation et la colère</h3></a>
+            <p class="texte__articles">Les timbres de Royal Mail entrent enfin dans le monde numérique, avec des codes imprimés qui peuvent être utilisés pour suivre les lettres ou liés à des vidéos. Les collectionneurs, traditionalistes et royalistes ne sont pas content. <a href="#">Lire l'article...</a></p>
+        </article>
+        <article class="articles">
+            <img class="image-article" src="ressources/img/photos/articles/moinsCout.jpg" alt="photo-article">
+            <a href="#"><h3 class="titre__articles">La Poste supprime son timbre le moins cher, comment envoyer ses courriers à moindres frais ?</h3></a>
+            <p class="texte__articles">Dès le 1er janvier 2023, La Poste va revoir sa gamme de timbres avec pour objectif de la simplifier et de la moderniser. Des changements qui vont aussi impliquer la fin discrète du mode d’envoi le moins cher. <a href="#">Lire l'article...</a></p>
+        </article>
+    </section>
+    <section class="infos">
+        <div class="lordStampee">
+            <img class="ls-photo" src="ressources/img/photos/regHargreeves.jpg" alt="Lord Stampee">
+            <p class="ls-description"><span class="ls-nom">Lord Reginald Stampee</span>, Duc de Worcessteshear est philatéliste depuis sa tendre enfance (Milieu des années cinquante). Depuis plusieurs années, Lord Stampee caressait l’idée de faire le pas dans le monde numérique et d'étendre au-delà du Royaume-Uni ses fameuses enchères de timbres qui font accourir les plus grands philatélistes du monde.</p>
+        </div>
+        <div class="infolettre">
+            <h3 class="infolettre-texte">Restez à l'affût des nouveautés grâce à notre infolettre!</h3>
+            <button class="infolettre-bouton">Je souhaite m'abonner!</button>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

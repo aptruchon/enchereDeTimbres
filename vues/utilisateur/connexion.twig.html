@@ -1,0 +1,25 @@
+{% extends "base.twig.html" %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+
+<link rel="stylesheet" href="ressources/css/connexionInscription.css">
+<section class="header__entete_page moyen-espace">
+    <h2 class="header__entete_page-titre">Connexion</h2>
+</section>
+<main>
+    <form action="" class="formulaire petit-espace" method="POST">
+        <input class="formulaire__input formulaire__input-email" type="email" name="courriel" id="courriel" pattern="(.+)@(.+){1,}\.(.+){1,}" required placeholder="Courriel">
+        <input class="formulaire__input" type="password" name="mdp" id="mdp" required placeholder="Mot de passe">
+        <button class="formulaire__button" type="submit">Se connecter</button>
+        {% if erreur %}
+        <span class="message-erreur">{{ erreur }}</span>
+        {% endif %}
+        {% if session.message %}
+        <span class="message">{{ session.message }}</span>
+        {% endif %}
+    </form>
+</main>
+
+{% endblock %}

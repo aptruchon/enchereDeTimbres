@@ -1,0 +1,55 @@
+{% extends "base.twig.html" %}
+
+{% block title %}Fiche{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="ressources/css/fiche.css">
+<section class="header__entete_page moyen-espace">
+    <h2 class="header__entete_page-titre">Détails</h2>
+</section>
+<main>
+    <article class="fiche moyen-espace">
+        <div class="img-wrapper">
+            <img id="img-original" class="fiche__img" src="{{ enchere.img_nom }}" alt="timbre-stlouis-ours">
+        </div>
+        <div class="fiche__infos">
+            <span class="fiche__details">CATEGORIE : {{ enchere.cat_nom }}</span>
+            <h2 class="fiche__titre petit-espace">{{ enchere.tim_nom }}</h2>
+            <span class="fiche__details">Estimation : {{ enchere.enc_estimation }} CAD</span>
+            <br>
+            <span class="fiche__details">Prix plancher : {{ enchere.enc_prixPlancher}} CAD</span>
+            <br><br>
+            {# {{ dump(mise) }} #}
+            <span class="fiche__details">Mise actuel : <span data-js-mise>{{ enchere.mis_miseActuelle }}</span> CAD</span>
+            <script>
+                
+            </script>
+            <span><a href="enchere/un/{{enchere.tim_id}}">Rafraîchir la mise</a></span>
+            <h3 class="moyen-espace">Description : </h3>
+            <p class="fiche__description">{{ enchere.tim_description }}</p>
+            <h5 class="gros-espace">Début de l'enchère : {{ enchere.enc_dateDebut }}</h5>
+            <h5 class="">Fin de l'enchère : {{ enchere.enc_dateFin }}</h5>
+            <br>
+            <hr>
+            
+            <form action="enchere/mise/{{session.utilisateur.uti_id}}/{{enchere.enc_id}}/{{enchere.tim_id}}" method="post">
+            <div class="fiche__bas">
+                {% if session.utilisateur %}
+                    <input data-js-inputMise class="fiche_champs-mise" name="mise" type="text" placeholder="0,00" required>
+                    <button data-js-bouton class="fiche__bouton">Miser</button>
+                    <span data-js-message class="messageCache">Votre mise doit être plus élevé que la mise actuelle.</span>
+                    <span data-js-messageType class="messageCache">Veuillez utiliser des chiffres.</span>
+                    {% if _get.maj %}
+                    <span>La mise n'étais pas à jour. Veuillez remiser.</span>
+                    {% endif %}
+                    
+                    {% else %}
+                    <a class="lien_connexion-mise" href="utilisateur/connexion">Se connecter pour miser</a>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </article>
+
+</main>
+{% endblock %}

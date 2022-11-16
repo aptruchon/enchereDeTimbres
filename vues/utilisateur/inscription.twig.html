@@ -1,0 +1,22 @@
+{% extends "base.twig.html" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="ressources/css/connexionInscription.css">
+<section class="header__entete_page moyen-espace">
+    <h2 class="header__entete_page-titre">Inscription</h2>
+</section>
+<main>
+    <form action="" class="formulaire petit-espace" method="POST">
+        <input class="formulaire__input" type="text" name="prenom" id="prenom" required placeholder="Prénom">
+        <input class="formulaire__input" type="text" name="nom" id="nom" required placeholder="Nom">
+        <input class="formulaire__input formulaire__input-email" type="email" pattern="(.+)@(.+){1,}\.(.+){1,}" name="courriel" id="courriel"  required placeholder="Courriel">
+        <input class="formulaire__input" type="password" name="mdp" id="mdp" required placeholder="Choisissez un mot de passe">
+        <button class="formulaire__button" type="submit">S'inscrire</button>
+        {% if erreur %}
+        <span class="message-erreur">{{ erreur }}</span>
+        {% endif %}
+    </form>
+</main>
+{% endblock %}

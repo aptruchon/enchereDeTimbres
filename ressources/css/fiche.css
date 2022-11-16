@@ -1,0 +1,163 @@
+main {
+    text-align: center;
+}
+
+.fiche {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    width: 1080px;
+    text-align: left;
+}
+
+.img-wrapper {
+    border: 1px solid black;
+    padding: 0px 20px;
+    margin-right: 10px;
+}
+
+.fiche__img {
+    object-fit: contain;
+    width: 382.517px;
+    height: 420px;
+}
+
+.fiche__infos {
+    background-color: #d5bebe;
+    height: fit-content;
+    padding: 15px;
+    width: 771px;
+}
+
+.fiche__bas {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    gap: 5px;
+}
+
+.fiche__titre {
+    margin-bottom: 10px;
+}
+
+.fiche__details {
+    font-size: 20px;
+    font-family:'Courier New', Courier, monospace
+}
+
+.fiche__description {
+    font-size: 18px;
+}
+
+.fiche_champs-mise{
+    width: 131.25px;
+    height: 40px;
+    border-radius: 30px 0px 0px 30px;
+    border: none;
+    text-align: center;
+    padding-right: 5px;
+    margin-left: auto;
+}
+
+.fiche_champs-mise-erreur{
+    border: red 2px solid;
+}
+
+.messageCache{
+    display: none;
+}
+
+.fiche__bouton {
+    display: block;
+    width: 219.75px;
+    height: 40px;
+    margin-right: auto;
+    background: none;
+    background-color: #d1a567;
+    color: black;
+    border: none;
+    border-radius: 0px 30px 30px 0px;
+    font-size: 18px;
+}
+
+.fiche__bouton:hover {
+    background-color: #3122a5;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.lien_connexion-mise {
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.lien_connexion-mise:hover {
+    text-decoration: underline;
+}
+
+.lien__retour {
+    text-decoration: none;
+}
+
+.lien__retour:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 920px){
+    .fiche{
+        max-width: fit-content;
+    }
+
+    .img-wrapper {
+        max-width: 90vw;
+        box-sizing: border-box;
+    }
+
+    .fiche__img {
+        max-width: 90vw;
+
+    }
+    
+    .fiche__infos {
+        text-align: left;
+        height: fit-content;
+        max-width: 90vw;
+        box-sizing: content-box;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .fiche {
+        display: flex;
+        flex-direction: column;
+        width: 382.517px;
+    }
+    
+    .img-wrapper {
+        
+        padding: 0px;
+        margin-right: 0px;
+        margin-bottom: 5px;
+    }
+
+    .fiche__img {
+        object-fit: contain;
+        height: 420px;
+        
+    }
+    
+    .fiche__infos {
+        text-align: left;
+        height: fit-content;
+        width: 352.517px;
+    }
+
+    .fiche__bouton {
+        margin-bottom: 8px;
+    }
+}

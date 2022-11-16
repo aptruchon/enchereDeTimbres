@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <base href="{{ constant('BASE_SERVEUR') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="ressources/css/entete.css">
+    <link rel="stylesheet" href="ressources/css/pied-de-page.css">
+    <link rel="stylesheet" href="ressources/css/rythme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="ressources/js/main.js" type="module" defer></script>
+    
+    
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header class="header">
+        <section class="header__entete">
+            <a href="accueil/index"><img class="header__entete-logo" src="ressources/img/logos/logoStampee-2.png" alt="logo"></a>
+            <h1 class="header__entete-titre">LORD STAMPEE</h1>
+            <div class="header__entete-icones-div">
+                <a href="#"><img class="header__entete-icones" src="ressources/img/icones/logo--facebook.svg" alt="icone-fcb"></a>
+                <a href="#">
+                    <img class="header__entete-icones" src="ressources/img/icones/logo--instagram.svg" alt="icone-fcb">
+                </a>
+            </div>
+        </section>
+        <div class="a-header">
+            <input type="checkbox" hidden name="main-nav" id="main-nav" class="burger-check">
+		    <label for="main-nav" class="burger menu"><span></span></label>
+            <nav class="header__navigation sidebar">
+                <div class="header__navigation-gauche">
+                    <a class="header__navigation-liens" href="enchere/tout">Enchères</a>
+                    <a class="header__navigation-liens" href="#">Actualités</a>
+                    <a class="header__navigation-liens" href="#">À propos</a>
+                </div>
+                <div class="header__navigation-droite">
+                    <input class="header__navigation-input" type="text" placeholder="Recherche">
+    
+                    {% if session.utilisateur %}
+                        <a class="header__navigation-liens" href="enchere/portail">Mon compte</a>
+                        <a class="header__navigation-liens" href="utilisateur/deconnexion">Déconnexion</a>
+                    {% else %}    
+                        <a class="header__navigation-liens" href="utilisateur/connexion">Connexion</a>
+                        <a class="header__navigation-liens" href="utilisateur/inscription">S'inscrire</a>
+                    {% endif %}
+    
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    {% block body %}
+    {% endblock %}
+
+    <footer class="footer tres-gros-espace">
+        <div class="footer__wrapper">
+            <div class="footer__colonnes">
+                <h3 class="footer__colonnes_titres">ENCHÈRES</h3>
+                <ul class="footer__liste">
+                    <li class="footer__liste_items"><a class="footer__liens" href="#">Enchères</a></li>
+                    <li class="footer__liste_items"><a class="footer__liens" href="#">Archives</a></li>
+                </ul>
+            </div>
+            <div class="footer__colonnes">
+                <h3 class="footer__colonnes_titres">À PROPOS</h3>
+                <ul class="footer__liste">
+                    <li class="footer__liste_items"><a class="footer__liens" href="#">Lord Stampee</a></li>
+                    <li class="footer__liste_items"><a class="footer__liens" href="#">Contact</a></li>
+                    <li class="footer__liste_items"><a class="footer__liens" href="#">Nos experts</a></li>
+                </ul>
+            </div>
+            <div class="footer__colonnes">
+                <h3 class="footer__colonnes_titres">SUPPORT TECHNIQUE</h3>
+                <ul class="footer__liste">
+                    <li class="footer__liste_items"><a class="footer__liens" href="#">Envois et retours</a></li>
+                    <li class="footer__liste_items"><a class="footer__liens" href="#">FAQ</a></li>
+                    <li class="footer__liste_items"><a class="footer__liens" href="#">Termes et conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer__copyright">© 2022 Cours UX/UI</p>
+    </footer>
+</body>
+</html>

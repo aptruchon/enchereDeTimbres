@@ -1,0 +1,89 @@
+.message {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #1e8706;
+    text-shadow: #f3e1dd 1px 1px 1px;
+}
+
+.message-erreur {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #3122a5;
+    text-shadow: #f3e1dd 1px 1px 1px;
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #d5bebe;
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+    width: 700px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.formulaire__input {
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.formulaire__button {
+    display: block;
+    width: 350px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    background: none;
+    background-color: #d1a567;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+}
+
+.formulaire__button:hover {
+    background-color: #3122a5;
+    color: white;
+    border-radius: 10px;
+    width: 400px;
+    transition: 0.8s;
+}
+
+
+@media screen and (max-width: 1080px){
+    .formulaire {
+        display: flex;
+        flex-direction: column;
+        width: 382.517px;
+        text-align: left;
+    }
+
+    .formulaire__button {
+        margin-bottom: 8px;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .formulaire {
+        
+        width: 90vw;
+        
+    }
+
+    .formulaire__button {
+        width: 50vw;
+    }
+
+    .formulaire__button:hover{
+        width: 55vw;
+    }
+}

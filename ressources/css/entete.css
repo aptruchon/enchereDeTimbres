@@ -1,0 +1,350 @@
+.header__entete {
+    display: grid;
+    grid-template-columns: 20% 50% 20%;
+    align-items: center;
+    justify-content: space-between;
+    height: 300px;
+}
+
+.header__entete-logo {
+    height: 100px;
+    margin-left: 30px;
+    padding-bottom: 90px;
+}
+
+.header__entete-icones-div {
+    text-align: right;
+    margin-right: 30px;
+}
+
+.header__entete-icones {
+    height: 40px;
+    text-align: left;
+    padding-bottom: 100px;
+}
+
+.header__entete-titre {
+    font-family: 'Cinzel', serif, 'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 90px;
+}
+
+.header__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(75, 26, 26);
+    color: white;
+}
+
+.header__navigation-gauche {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin-left: 30px;
+}
+
+.header__navigation-droite {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 30px;
+    margin-right: 30px;
+}
+
+.header__navigation-liens {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-family: 'Cinzel', serif, 'Times New Roman', Times, serif;
+    padding: 20px;
+}
+
+.header__navigation-liens:hover {
+    background-color: #d5bebe;
+    color: black;
+}
+
+.header__navigation-input {
+    border: solid 2px white;
+    height: 30px;
+    margin-right: 20px;
+    padding-left: 3px;
+}
+
+.header__entete_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+.header__entete_page-titre {
+    font-family: 'Cinzel', serif, 'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+
+
+@media screen and (max-width: 1080px){
+    .header__entete-titre {
+        font-size: 50px;
+    }
+
+    .header__entete {
+        display: flex;
+        flex-direction: column;
+        height: 150px;
+    }
+    
+    .header__entete-logo {
+        height: 70px;
+        margin-top: 10px;
+        margin-left: 0;
+        padding-bottom: 0;
+    }
+
+    .header__entete-icones {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 920px){
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header__entete-logo{
+        margin-bottom: 10px;
+    }
+
+    .header__entete{
+        height: fit-content;
+    }
+
+    .header__entete-titre {
+        display: none;
+    }
+
+    .header__navigation {
+        display: block;
+        float: left;
+        height: fit-content;
+    }
+
+    .header__navigation-gauche {
+        display: block;
+        margin-left: 0; 
+        height: fit-content;
+    }
+    
+    .header__navigation-droite {
+        display: block;
+        margin-right: 0;
+        height: fit-content;
+    }
+
+    .header__navigation-liens {
+        display: block;
+        background-color: rgb(75, 26, 26);
+        color: white;
+        text-align: center;
+        border-bottom: white 1px solid;
+        padding: 10px;
+    }
+
+    .header__navigation-input{
+        display: none;
+    }
+
+    .header__entete_page-titre {
+        position: absolute;
+    }
+
+
+    *,
+*:before,
+*:after {
+		-webkit-transition: all 0.3s;
+		transition: all 0.3s;
+		box-sizing: border-box;
+}
+
+/*==============================================================================
+ The burger icon with it's animation. Uses the checked property of a checkbox
+ in order to make the animation happen as well as control the next elements
+ I've used classes because of the + css selector, which will only ever animate
+ the next label element. Does not work on IE8 or below and opera mini since
+ they don't support the :checked selector.
+==============================================================================*/
+.burger-check {
+    display: none;
+}
+
+/*--------------------------------------
+Sets the actionable area for the burger
+including a label for usability
+--------------------------------------*/
+.burger {
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.burger:after {
+    content: 'Menu';
+    position: absolute;
+    bottom: 7px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+}
+
+/*--------------------------------------
+ Creates the look of the burger icon
+ using the inner span and pseudo-elements
+--------------------------------------*/
+.burger span,
+.burger span:before,
+.burger span:after {
+		position: absolute;
+		left: 10px;
+		top: 22px;
+		width: 40px;
+		height: 4px;
+		background: #333;
+		border-radius: 0.2em;
+}
+
+/* Reset the left and create the pseudo-element */
+.burger span:before,
+.burger span:after {
+		content: '';
+		left: 0;
+}
+
+/* Top bar position */
+.burger span:before {
+		top: -8px;
+}
+
+/* Bottom bar position */
+.burger span:after {
+		top: 8px;
+}
+
+/* Get rid of more on action (IE9 or higher) */
+.burger-check:checked + .burger:after {
+		content: '';
+}
+/* Get rid of the middle bar on action (IE9 or higher) */
+
+.burger-check:checked + .burger span {
+		height: 0;
+		width: 0;
+}
+
+/* Moves the top and bottom bars to the middle on action (IE9 or higher) */
+.burger-check:checked + .burger span:before,
+.burger-check:checked + .burger span:after {
+		top: 6px;
+}
+
+/* Rotates the top bar on action with full browser support (IE9 or higher) */
+.burger-check:checked + .burger span:before {
+		-webkit-transform: rotate(225deg);
+		-ms-transform: rotate(225deg);
+		transform: rotate(225deg);
+}
+
+/* Rotates the bottom bar on action with full browser support (IE9 or higher) */
+.burger-check:checked + .burger span:after {
+		-webkit-transform: rotate(-225deg);
+		-ms-transform: rotate(225deg);
+		transform: rotate(-225deg);
+}
+
+/*==============================================================================
+ Simple reveal (IE9 or higher)
+==============================================================================*/
+span.boo {
+		width: auto;
+		margin-top: 0;
+		line-height: 60px;
+		height: 0;
+		overflow: hidden;
+}
+
+/* Reveals Boo! (IE9 or higher) */
+#main-nav-test:checked ~ .boo {
+		height: 50px;
+}
+
+/***/
+
+/*==============================================================================
+ Simple mobile menu opening and closing (IE9 or higher)
+==============================================================================*/
+.a-header {
+    position: relative;
+    float: left;
+    /* width: calc(100% - 20px);
+    margin: 0; */
+    min-height: 50px;
+
+    overflow: hidden;
+}
+
+.a-header nav {
+    position: relative;
+    float: left;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.a-header nav a{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 0;
+    line-height: 50px;
+    padding: 0 15px;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+/* Animate height of 'a' element in order to reveal the menu on check (IE9 or higher) */
+#main-nav:checked ~ nav a{
+    height: 50px;
+}
+    
+    
+
+    @media screen and (max-width: 610px){
+        .header__entete_page-titre{
+        font-size: 30px;
+        }
+
+        .header__entete_page {
+            margin-top: 10px;
+        }
+    }
+
+    @media screen and (max-width: 500px){
+        .header__entete_page-titre{
+        font-size: 20px;
+        }
+
+        .header__entete_page{
+            height: 50px;
+        }
+    }
+}

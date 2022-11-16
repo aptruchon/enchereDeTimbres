@@ -1,0 +1,84 @@
+{% extends "base.twig.html" %}
+
+{% block title %}Modification{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="ressources/css/ajoutModification.css">
+<section class="header__entete_page tres-gros-espace">
+    <h2 class="header__entete_page-titre">Modification d'une enchère</h2>
+</section>
+<main class="main tres-gros-espace">
+    <form enctype="multipart/form-data" action="enchere/modification" class="nouveau" method="POST">
+        <input hidden type="text" name="tim_id" id="tim_id" value="{{enchere.tim_id}}">
+        <input hidden type="text" name="enc_id" id="enc_id" value="{{enchere.enc_id}}">
+
+        <label for="tim_nom" id="tim_nom">Nom du timbre</label>
+        <input class="champs" type="text" name="tim_nom" id="tim_nom" value="{{enchere.tim_nom}}" placeholder="Nom" required>
+
+        <label for="tim_description" id="tim_description">Description du timbre</label>
+        <textarea class="champs-gros" maxlength="500" name="tim_description" id="tim_description" placeholder="Description" required>{{enchere.tim_description}}</textarea>
+        
+        {% set photoActuelle = enchere.img_nom|split('timbres/').1 %}
+        <label>Photo actuelle : {{photoActuelle}}</label>
+        <span>Choisir une autre image</span>
+        <input class="champs" type="file" name="img_nom" id="img_nom" value="{{enchere.img_nom}}" accept=".png, .jpg, .jpeg, .gif">
+        <input type="text" name="img_vieille" hidden value="{{enchere.img_nom}}">
+
+        <label for="pay_nom" id="pay_nom">Provenance du timbre</label>
+        <select class="champs" name="pay_nom" id="pay_nom" required>
+            <option value="">Pays</option>
+            {% for unPays in pays %}
+                <option value="{{ unPays.pay_id }}" {{ enchere.tim_pay_id_ce == unPays.pay_id ? "selected" : '' }}>{{ unPays.pay_nom }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="cat_nom" id="cat_nom">Catégorie du timbre</label>
+        <select class="champs" name="cat_nom" id="cat_nom" required>
+            <option value="">Catégorie</option>
+            {% for categorie in categories %}
+            <option value="{{ categorie.cat_id }}" {{ enchere.tim_cat_id_ce == categorie.cat_id ? "selected" : '' }}>{{ categorie.cat_nom }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="tim_couleurs" id="tim_couleurs">Couleur(s) du timbre</label>
+        <input class="champs" type="text" name="tim_couleurs" value="{{enchere.tim_couleurs}}" placeholder="Couleur(s)" required>
+        
+        <label for="tim_condition" id="tim_condition">Condition du timbre</label>
+        <select class="champs" name="tim_condition" id="tim_condition" required>
+            <option value="">Condition</option>
+            <option value="Parfaite" {{ enchere.tim_condition == "Parfaite" ? "selected" : '' }}>Parfaite</option>
+            <option value="Excellente" {{ enchere.tim_condition == "Excellente" ? "selected" : '' }}>Excellente</option>
+            <option value="Bonne" {{ enchere.tim_condition == "Bonne" ? "selected" : '' }}>Bonne</option>
+            <option value="Moyenne" {{ enchere.tim_condition == "Moyenne" ? "selected" : '' }}>Moyenne</option>
+            <option value="Endommagé" {{ enchere.tim_condition == "Endommagé" ? "selected" : '' }}>Endommagé</option>
+        </select>
+        
+        <label for="tim_tirage" id="tim_tirage">Tirage du timbre (Nombre d'exemplaires imprimés)</label>
+        <input class="champs" type="number" name="tim_tirage" id="tim_tirage" value="{{enchere.tim_tirage}}" placeholder="Tirage" required>
+        
+        <label for="tim_certification" id="tim_certification">Le timbre est-il certifié?</label>
+        <select class="champs" name="tim_certification" id="tim_certification" required>
+            <option value="">Certification</option>
+            <option value="1" {{ enchere.tim_certification == "1" ? "selected" : '' }}>Oui</option>
+            <option value="0" {{ enchere.tim_certification == "2" ? "selected" : '' }}>Non</option>
+        </select>
+
+        <label for="tim_dimensions" id="tim_dimensions">Dimensions du timbre</label>
+        <input class="champs" type="text" name="tim_dimensions" id="tim_dimensions" value="{{enchere.tim_dimensions}}" placeholder="Dimensions (Hauteur x Largeur)" required>
+
+        <label for="enc_estimation" id="enc_estimation">Estimation du timbre</label>
+        <input class="champs" type="number" name="enc_estimation" id="enc_estimation" value="{{enchere.enc_estimation}}" placeholder="Estimation (CAD)" required>
+
+        <label for="enc_dateDebut">Début de l'enchère</label>
+        <input class="champs" type="datetime-local" name="enc_dateDebut" id="enc_dateDebut" value="{{enchere.enc_dateDebut}}" required>
+
+        <label for="enc_dateFin">Fin de l'enchère</label>
+        <input class="champs" type="datetime-local" name="enc_dateFin" id="enc_dateFin" value="{{enchere.enc_dateFin}}" required>
+        
+        <label for="enc_prixPlancher">Prix de départ</label>
+        <input class="champs" type="number" name="enc_prixPlancher" id="enc_prixPlancher" value="{{enchere.enc_prixPlancher}}" placeholder="Prix de départ (CAD)" required>
+        
+        <button class="formulaire__button">Modifier</button>
+    </form>
+</main>
+{% endblock %}

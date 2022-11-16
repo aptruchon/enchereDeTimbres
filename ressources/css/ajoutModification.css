@@ -1,0 +1,84 @@
+.nouveau {
+    margin-right: auto;
+    margin-left: auto;
+    height: fit-content;
+    width: 700px;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #d5bebe;
+}
+
+.champs {
+    margin-bottom: 10px;
+    border: none;
+    height: 30px;
+    padding-left: 8px;
+}
+
+.champs-gros {
+    margin-bottom: 10px;
+    border: none;
+    padding-left: 8px;
+    padding-top: 5px;
+}
+
+.formulaire__button {
+    display: block;
+    width: 350px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    background: none;
+    background-color: #d1a567;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+}
+
+.formulaire__button:hover {
+    background-color: #3122a5;
+    color: white;
+    border-radius: 10px;
+    width: 400px;
+    transition: 0.8s;
+}
+
+.formulaire-timbre_miniature {
+    width: 100px;
+    height: 130px;
+    margin-right: 15px;
+    object-fit: contain;
+}
+
+label {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 740px){
+    .nouveau{
+        width: 90vw;
+        margin-bottom: 20px;
+    }
+
+    .formulaire__button{
+        width: 50vw;
+    }
+
+    .formulaire__button:hover{
+        width: 55vw;
+    }
+}
+@media screen and (max-width: 900px){
+    .fenetre__encheres {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        width: 90vw;
+        border-radius: 5px;
+    }
+}
